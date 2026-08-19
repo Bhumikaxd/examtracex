@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PapersIndexRouteImport } from './routes/papers.index'
+import { Route as PapersPaperIdRouteImport } from './routes/papers.$paperId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,17 +35,24 @@ const PapersIndexRoute = PapersIndexRouteImport.update({
   path: '/papers/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PapersPaperIdRoute = PapersPaperIdRouteImport.update({
+  id: '/papers/$paperId',
+  path: '/papers/$paperId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/papers/$paperId': typeof PapersPaperIdRoute
   '/papers/': typeof PapersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/papers/$paperId': typeof PapersPaperIdRoute
   '/papers': typeof PapersIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,23 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/papers/$paperId': typeof PapersPaperIdRoute
   '/papers/': typeof PapersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/login' | '/papers/'
+  fullPaths: '/' | '/dashboard' | '/login' | '/papers/$paperId' | '/papers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/login' | '/papers'
-  id: '__root__' | '/' | '/dashboard' | '/login' | '/papers/'
+  to: '/' | '/dashboard' | '/login' | '/papers/$paperId' | '/papers'
+  id:
+    '__root__' | '/' | '/dashboard' | '/login' | '/papers/$paperId' | '/papers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
+  PapersPaperIdRoute: typeof PapersPaperIdRoute
   PapersIndexRoute: typeof PapersIndexRoute
 }
 
@@ -99,6 +110,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PapersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/papers/$paperId': {
+      id: '/papers/$paperId'
+      path: '/papers/$paperId'
+      fullPath: '/papers/$paperId'
+      preLoaderRoute: typeof PapersPaperIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
+  PapersPaperIdRoute: PapersPaperIdRoute,
   PapersIndexRoute: PapersIndexRoute,
 }
 export const routeTree = rootRouteImport
