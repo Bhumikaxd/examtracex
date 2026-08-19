@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useStore, type PaperStatus } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/papers")({
+export const Route = createFileRoute("/papers/")({
   head: () => ({
     meta: [
       { title: "Exam Papers — ExamTraceX" },
