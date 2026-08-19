@@ -26,9 +26,9 @@ export interface CustodyEvent {
   time: string;
   user: string;
   location: string;
-  from?: string;
-  to?: string;
-  note?: string;
+  from?: string | undefined;
+  to?: string | undefined;
+  note?: string | undefined;
   tone: Tone;
 }
 
