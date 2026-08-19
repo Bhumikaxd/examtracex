@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccessLogsRouteImport } from './routes/access-logs'
+import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as CreatePaperRouteImport } from './routes/create-paper'
+import { Route as CustodyRouteImport } from './routes/custody'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LeakDetectionRouteImport } from './routes/leak-detection'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as UsersRouteImport } from './routes/users'
+import { Route as InvestigateAlertIdRouteImport } from './routes/investigate.$alertId'
+import { Route as PapersIndexRouteImport } from './routes/papers.index'
+import { Route as PapersPaperIdRouteImport } from './routes/papers.$paperId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessLogsRoute = AccessLogsRouteImport.update({
+  id: '/access-logs',
+  path: '/access-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlertsRoute = AlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreatePaperRoute = CreatePaperRouteImport.update({
+  id: '/create-paper',
+  path: '/create-paper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustodyRoute = CustodyRouteImport.update({
+  id: '/custody',
+  path: '/custody',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeakDetectionRoute = LeakDetectionRouteImport.update({
+  id: '/leak-detection',
+  path: '/leak-detection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsersRoute = UsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestigateAlertIdRoute = InvestigateAlertIdRouteImport.update({
+  id: '/investigate/$alertId',
+  path: '/investigate/$alertId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PapersIndexRoute = PapersIndexRouteImport.update({
+  id: '/papers/',
+  path: '/papers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PapersPaperIdRoute = PapersPaperIdRouteImport.update({
+  id: '/papers/$paperId',
+  path: '/papers/$paperId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/access-logs': typeof AccessLogsRoute
+  '/alerts': typeof AlertsRoute
+  '/create-paper': typeof CreatePaperRoute
+  '/custody': typeof CustodyRoute
+  '/dashboard': typeof DashboardRoute
+  '/leak-detection': typeof LeakDetectionRoute
+  '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/users': typeof UsersRoute
+  '/investigate/$alertId': typeof InvestigateAlertIdRoute
+  '/papers/$paperId': typeof PapersPaperIdRoute
+  '/papers/': typeof PapersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/access-logs': typeof AccessLogsRoute
+  '/alerts': typeof AlertsRoute
+  '/create-paper': typeof CreatePaperRoute
+  '/custody': typeof CustodyRoute
+  '/dashboard': typeof DashboardRoute
+  '/leak-detection': typeof LeakDetectionRoute
+  '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/users': typeof UsersRoute
+  '/investigate/$alertId': typeof InvestigateAlertIdRoute
+  '/papers/$paperId': typeof PapersPaperIdRoute
+  '/papers': typeof PapersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/access-logs': typeof AccessLogsRoute
+  '/alerts': typeof AlertsRoute
+  '/create-paper': typeof CreatePaperRoute
+  '/custody': typeof CustodyRoute
+  '/dashboard': typeof DashboardRoute
+  '/leak-detection': typeof LeakDetectionRoute
+  '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/users': typeof UsersRoute
+  '/investigate/$alertId': typeof InvestigateAlertIdRoute
+  '/papers/$paperId': typeof PapersPaperIdRoute
+  '/papers/': typeof PapersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/access-logs'
+    | '/alerts'
+    | '/create-paper'
+    | '/custody'
+    | '/dashboard'
+    | '/leak-detection'
+    | '/login'
+    | '/settings'
+    | '/users'
+    | '/investigate/$alertId'
+    | '/papers/$paperId'
+    | '/papers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/access-logs'
+    | '/alerts'
+    | '/create-paper'
+    | '/custody'
+    | '/dashboard'
+    | '/leak-detection'
+    | '/login'
+    | '/settings'
+    | '/users'
+    | '/investigate/$alertId'
+    | '/papers/$paperId'
+    | '/papers'
+  id:
+    | '__root__'
+    | '/'
+    | '/access-logs'
+    | '/alerts'
+    | '/create-paper'
+    | '/custody'
+    | '/dashboard'
+    | '/leak-detection'
+    | '/login'
+    | '/settings'
+    | '/users'
+    | '/investigate/$alertId'
+    | '/papers/$paperId'
+    | '/papers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessLogsRoute: typeof AccessLogsRoute
+  AlertsRoute: typeof AlertsRoute
+  CreatePaperRoute: typeof CreatePaperRoute
+  CustodyRoute: typeof CustodyRoute
+  DashboardRoute: typeof DashboardRoute
+  LeakDetectionRoute: typeof LeakDetectionRoute
+  LoginRoute: typeof LoginRoute
+  SettingsRoute: typeof SettingsRoute
+  UsersRoute: typeof UsersRoute
+  InvestigateAlertIdRoute: typeof InvestigateAlertIdRoute
+  PapersPaperIdRoute: typeof PapersPaperIdRoute
+  PapersIndexRoute: typeof PapersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +208,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/access-logs': {
+      id: '/access-logs'
+      path: '/access-logs'
+      fullPath: '/access-logs'
+      preLoaderRoute: typeof AccessLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alerts': {
+      id: '/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create-paper': {
+      id: '/create-paper'
+      path: '/create-paper'
+      fullPath: '/create-paper'
+      preLoaderRoute: typeof CreatePaperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custody': {
+      id: '/custody'
+      path: '/custody'
+      fullPath: '/custody'
+      preLoaderRoute: typeof CustodyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leak-detection': {
+      id: '/leak-detection'
+      path: '/leak-detection'
+      fullPath: '/leak-detection'
+      preLoaderRoute: typeof LeakDetectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/users': {
+      id: '/users'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof UsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investigate/$alertId': {
+      id: '/investigate/$alertId'
+      path: '/investigate/$alertId'
+      fullPath: '/investigate/$alertId'
+      preLoaderRoute: typeof InvestigateAlertIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/papers/': {
+      id: '/papers/'
+      path: '/papers'
+      fullPath: '/papers/'
+      preLoaderRoute: typeof PapersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/papers/$paperId': {
+      id: '/papers/$paperId'
+      path: '/papers/$paperId'
+      fullPath: '/papers/$paperId'
+      preLoaderRoute: typeof PapersPaperIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessLogsRoute: AccessLogsRoute,
+  AlertsRoute: AlertsRoute,
+  CreatePaperRoute: CreatePaperRoute,
+  CustodyRoute: CustodyRoute,
+  DashboardRoute: DashboardRoute,
+  LeakDetectionRoute: LeakDetectionRoute,
+  LoginRoute: LoginRoute,
+  SettingsRoute: SettingsRoute,
+  UsersRoute: UsersRoute,
+  InvestigateAlertIdRoute: InvestigateAlertIdRoute,
+  PapersPaperIdRoute: PapersPaperIdRoute,
+  PapersIndexRoute: PapersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
