@@ -16,6 +16,7 @@ import { Route as CreatePaperRouteImport } from './routes/create-paper'
 import { Route as CustodyRouteImport } from './routes/custody'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as InvestigateAlertIdRouteImport } from './routes/investigate.$alertId'
 import { Route as PapersIndexRouteImport } from './routes/papers.index'
 import { Route as PapersPaperIdRouteImport } from './routes/papers.$paperId'
 
@@ -54,6 +55,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InvestigateAlertIdRoute = InvestigateAlertIdRouteImport.update({
+  id: '/investigate/$alertId',
+  path: '/investigate/$alertId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PapersIndexRoute = PapersIndexRouteImport.update({
   id: '/papers/',
   path: '/papers/',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/custody': typeof CustodyRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/investigate/$alertId': typeof InvestigateAlertIdRoute
   '/papers/$paperId': typeof PapersPaperIdRoute
   '/papers/': typeof PapersIndexRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/custody': typeof CustodyRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/investigate/$alertId': typeof InvestigateAlertIdRoute
   '/papers/$paperId': typeof PapersPaperIdRoute
   '/papers': typeof PapersIndexRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/custody': typeof CustodyRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/investigate/$alertId': typeof InvestigateAlertIdRoute
   '/papers/$paperId': typeof PapersPaperIdRoute
   '/papers/': typeof PapersIndexRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/custody'
     | '/dashboard'
     | '/login'
+    | '/investigate/$alertId'
     | '/papers/$paperId'
     | '/papers/'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/custody'
     | '/dashboard'
     | '/login'
+    | '/investigate/$alertId'
     | '/papers/$paperId'
     | '/papers'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/custody'
     | '/dashboard'
     | '/login'
+    | '/investigate/$alertId'
     | '/papers/$paperId'
     | '/papers/'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   CustodyRoute: typeof CustodyRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
+  InvestigateAlertIdRoute: typeof InvestigateAlertIdRoute
   PapersPaperIdRoute: typeof PapersPaperIdRoute
   PapersIndexRoute: typeof PapersIndexRoute
 }
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/investigate/$alertId': {
+      id: '/investigate/$alertId'
+      path: '/investigate/$alertId'
+      fullPath: '/investigate/$alertId'
+      preLoaderRoute: typeof InvestigateAlertIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/papers/': {
       id: '/papers/'
       path: '/papers'
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   CustodyRoute: CustodyRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
+  InvestigateAlertIdRoute: InvestigateAlertIdRoute,
   PapersPaperIdRoute: PapersPaperIdRoute,
   PapersIndexRoute: PapersIndexRoute,
 }
