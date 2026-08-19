@@ -43,7 +43,7 @@ function SettingsPage() {
                 <Label htmlFor={t.k} className="text-sm font-normal text-muted-foreground">{t.label}</Label>
                 <Switch
                   id={t.k}
-                  checked={state[t.k]}
+                  checked={state[t.k] ?? false}
                   onCheckedChange={(v) => setState((s) => ({ ...s, [t.k]: v }))}
                 />
               </div>
