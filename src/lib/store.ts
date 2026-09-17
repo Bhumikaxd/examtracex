@@ -203,11 +203,8 @@ export const store = {
 };
 
 export function useStore<T>(selector: (s: State) => T): T {
-  return useSyncExternalStore(
-    store.subscribe,
-    () => selector(state),
-    () => selector(state),
-  );
+  const snapshot = useSyncExternalStore(store.subscribe, store.get, store.get);
+  return selector(snapshot);
 }
 
 export const actions = {
